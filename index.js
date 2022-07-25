@@ -16,6 +16,10 @@ app.use('/posts', postRoutes);
 
 const PORT = process.env.PORT || 5000;
 
+app.get('/', (req, res) => {
+    res.send('Backend Connected...')
+})
+
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true } )
     .then(() => app.listen(PORT, () => console.log(`Server is runnig on port: ${PORT}`)))
     .catch((error) => console.log(error.message));
